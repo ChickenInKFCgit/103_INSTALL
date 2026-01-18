@@ -36,4 +36,3 @@ echo $contenu > $dossier/$nom.txt
 
 echo "Suggestion $nom créée dans $dossier"
 echo "Fin de la création"
-exit 0
