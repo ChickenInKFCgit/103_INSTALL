@@ -13,3 +13,35 @@ if [ ! -d MENUS ]
 then
     mkdir MENUS
 fi
+
+echo "Quel est le nom du menu que vous souhaitez créer ?"
+read nom
+
+echo "~ Composition du menu $nom ~"
+
+
+# À ajouter :
+# - vérification d'appartenance au dossier
+# - choix de consultation des notes / prix 
+
+echo "Choisissez une entrée :"
+ls ENTREES
+read choixEntree
+
+echo "Choisissez un plat :"
+ls PLATS
+read choixPlat
+
+echo "Choisissez un dessert :"
+ls DESSERTS
+read choixDessert
+
+touch MENUS/$nom.txt
+echo
+echo "~ Menu $nom ~" > MENUS/$nom.txt
+echo "Entrée : $choixEntree" >> MENUS/$nom.txt
+echo "Plat : $choixPlat" >> MENUS/$nom.txt
+echo "Dessert : $choixDessert" >> MENUS/$nom.txt
+echo "Bon appétit !" >> MENUS/$nom.txt
+
+cat MENUS/$nom.txt
