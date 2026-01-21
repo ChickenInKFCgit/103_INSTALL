@@ -1,11 +1,4 @@
 #!/bin/bash
-#_____________________TESTS ARGUMENTS
-if test $# -ne 3
-then
-    echo "Usage : bash $0 <chemin_entrees> <chemin_plats> <chemin_desserts>"
-    exit 1
-fi
-
 #_____________________FONCTIONS
 
 function creerSuggestion ()
@@ -49,7 +42,7 @@ function creerSuggestion ()
     echo "Fin de la création"
 }
 
-function supprimer-suggestion ()
+function supprimersuggestion ()
 {
     echo "Quel type de suggestion voulez vous effacer ?"
 
@@ -168,7 +161,7 @@ prix ()
     echo "Prix : $prix €" >> $1
 }
 
-function compter-nb-fichs-dans-reps ()
+function compternbfichsdansreps ()
 {
     echo "Choisir un répertoire où compter le nombre de recettes : "
 
@@ -246,7 +239,7 @@ function composerMenu ()
 
     cat MENUS/$nom.txt
 }
-function supprimer-menu {
+function supprimermenu {
     echo "Veuillez saisir le menu à supprimer ou 'q' pour annuler"
     ls ./MENUS
     read input
@@ -270,6 +263,13 @@ function supprimer-menu {
             ;;
     esac
     return 0
+}
+
+function comptermenus()
+{
+	nbmenus=$(ls -l ./MENUS | tail -n +2 | wc -l)
+	echo "Il y a $nbmenus menus."
+	exit 0
 }
 
 #_____________________MAIN LOOP
@@ -296,7 +296,7 @@ do
             creerSuggestion
             ;;
         2)
-            supprimer-suggestion
+            supprimersuggestion
             ;;
         3)
             consulterSuggestion
@@ -308,7 +308,7 @@ do
             affichage_fin
             ;;
         6)
-            compter-nb-fichs-dans-reps
+            compternbfichsdansreps
             ;;
         7)
             note
@@ -320,9 +320,10 @@ do
             composerMenu
             ;;
         10)
-            supprimer-menu
+            supprimermenu
             ;;
         11)
+            comptermenus
             ;;
     esac
 done
