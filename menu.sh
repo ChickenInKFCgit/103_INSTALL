@@ -284,7 +284,6 @@ function comptermenus()
 {
 	nbmenus=$(ls -l ./MENUS | tail -n +2 | wc -l)
 	echo "Il y a $nbmenus menus."
-	exit 0
 }
 
 #_____________________MAIN LOOP
