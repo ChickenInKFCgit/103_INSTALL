@@ -73,7 +73,7 @@ function supprimersuggestion ()
     echo "Êtes-vous sûr ? [Y/n]"
     read confirmer
 
-    if [ $confirmer -eq "Y" ]
+    if [ "$confirmer" = "Y" ]
     then
         if rm -R ./$chemin/$input
         then
