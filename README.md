@@ -48,10 +48,3 @@ Le script principal ne reçoit pas d'arguments :
 10) Supprimer un menu
 11) Compter le nombre de menus
 12) Quitter
-
-
-## Tests et validation
-
-Le projet inclut un script préparatoire permettant de générer un environnement de test vierge :  
-
-**./arbo.sh**
