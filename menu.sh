@@ -46,15 +46,15 @@ function supprimersuggestion ()
 {
     echo "Quel type de suggestion voulez vous effacer ?"
 
-    input=0
-    while [ $input -ne 1 -a $input -ne 2 -a $input -ne 3 ]
+    entree=0
+    while [ $entree -ne 1 -a $entree -ne 2 -a $entree -ne 3 ]
     do
         echo "Veuillez sélectionner un dossier"
         echo "(1)ENTREES  -  (2)PLATS  -  (3)DESSERTS"
-        read input
+        read entree
     done
 
-    case $input in
+    case $entree in
         1)
             chemin="ENTREES"
             ;;
@@ -68,14 +68,14 @@ function supprimersuggestion ()
 
     echo "Veuillez saisir une suggestion à supprimer :"
     ls $chemin
-    read input
+    read entree
 
     echo "Êtes-vous sûr ? [Y/n]"
     read confirmer
 
     if [ "$confirmer" = "Y" ]
     then
-        if rm -R ./$chemin/$input
+        if rm -R ./$chemin/$entree
         then
             echo "La suggestion a été effacée"
         else
@@ -165,15 +165,15 @@ function compternbfichsdansreps ()
 {
     echo "Choisir un répertoire où compter le nombre de recettes : "
 
-    input=0
-    while [ $input -ne 1 -a $input -ne 2 -a $input -ne 3 ]
+    entree=0
+    while [ $entree -ne 1 -a $entree -ne 2 -a $entree -ne 3 ]
     do
         echo "Veuillez sélectionner un dossier"
         echo "(1)ENTREES  -  (2)PLATS  -  (3)DESSERTS"
-        read input
+        read entree
     done
 
-    case $input in
+    case $entree in
         1)
             chemin="ENTREES"
             ;;
@@ -257,9 +257,9 @@ function composerMenu ()
 function supprimermenu {
     echo "Veuillez saisir le menu à supprimer ou 'q' pour annuler"
     ls ./MENUS
-    read input
+    read entree
 
-    case $input in
+    case $entree in
         "q")
             return 0
             ;;
@@ -268,7 +268,7 @@ function supprimermenu {
             read confirmer
             if [ $confirmer -eq "Y" ]
             then
-                if rm -R ./MENUS/$input 2> /dev/null
+                if rm -R ./MENUS/$entree 2> /dev/null
                 then
                     echo "Le Menu a été supprimé."
                 else
