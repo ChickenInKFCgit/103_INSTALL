@@ -67,7 +67,7 @@ function supprimersuggestion ()
     esac
 
     echo "Veuillez saisir une suggestion à supprimer :"
-    ls ./SUGGESTIONS/$chemin
+    ls ./$chemin
     read input
 
     echo "Êtes-vous sûr ? [Y/n]"
@@ -75,7 +75,7 @@ function supprimersuggestion ()
 
     if [ $confirmer -eq "Y" ]
     then
-        if rm -R ./SUGGESTIONS/$chemin/$input
+        if rm -R ./$chemin/$input
         then
             echo "La suggestion a été effacée"
         else
