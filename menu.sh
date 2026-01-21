@@ -67,7 +67,7 @@ function supprimersuggestion ()
     esac
 
     echo "Veuillez saisir une suggestion à supprimer :"
-    ls ./SUGGESTIONS/$chemin
+    ls $chemin
     read input
 
     echo "Êtes-vous sûr ? [Y/n]"
@@ -75,7 +75,7 @@ function supprimersuggestion ()
 
     if [ $confirmer -eq "Y" ]
     then
-        if rm -R ./SUGGESTIONS/$chemin/$input
+        if rm -R ./$chemin/$input
         then
             echo "La suggestion a été effacée"
         else
@@ -290,18 +290,25 @@ function comptermenus()
 input=0
 while [ $input -ne 12 ]
 do
-    echo "1) Créer une suggestion d'entrée/plat/dessert"
-    echo "2) Supprimer une suggestion d'entrée/plat/dessert"
-    echo "3) Consulter une suggestion"
-    echo "4) Afficher les X Premières lignes d'une suggestion"
-    echo "5) Afficher les X Dernières lignes d'une suggestion"
-    echo "6) compter le nombre de fichiers d'un des trois répertoires ENTREES, PLATS et DESSERTS"
-    echo "7) Noter une suggestion"
-    echo "8) Evaluer le prix d'une suggestion"
-    echo "9) Composer un menu"
-    echo "10) Supprimer un menu"
-    echo "11) Compter le nombre de menus"
-    echo "12) Quitter"
+    echo
+    echo
+    echo "------------------------------------------------"
+    echo "  MENU PRINCIPAL"
+    echo "------------------------------------------------"
+
+    echo "  1) Créer une suggestion d'entrée/plat/dessert"
+    echo "  2) Supprimer une suggestion d'entrée/plat/dessert"
+    echo "  3) Consulter une suggestion"
+    echo "  4) Afficher les X Premières lignes d'une suggestion"
+    echo "  5) Afficher les X Dernières lignes d'une suggestion"
+    echo "  6) compter le nombre de fichiers d'un des trois répertoires ENTREES, PLATS et DESSERTS"
+    echo "  7) Noter une suggestion"
+    echo "  8) Evaluer le prix d'une suggestion"
+    echo "  9) Composer un menu"
+    echo "  10) Supprimer un menu"
+    echo "  11) Compter le nombre de menus"
+    echo "  12) Quitter"
+    echo
 
     read input
 
