@@ -37,25 +37,57 @@ function compter-nb-fichs-dans-reps ()
 }
 #_____________________MAIN LOOP
 input=0
-while [ $input -ne 6 ]
+while [ $input -ne 12 ]
 do
         echo "1) Créer une suggestion d'entrée/plat/dessert"
-        echo "2) commande 2"
-        echo "3) commande 3"
-        echo "4) commande 4"
-        echo "5) commande 5"
-        echo "6) Quitter"
+        echo "2) Supprimer une suggestion d'entrée/plat/dessert"
+        echo "3) Consulter une suggestion"
+        echo "4) Afficher les X Premières lignes d'une suggestion"
+        echo "5) Afficher les X Dernières lignes d'une suggestion"
+        echo "6) compter le nombre de fichiers d'un des trois répertoires ENTREES, PLATS et DESSERTS"
+        echo "7) Noter une suggestion"
+        echo "8) Evaluer le prix d'une suggestion"
+        echo "9) Composer un menu"
+        echo "10) Supprimer un menu"
+        echo "11) Compter le nombre de menus"
+        echo "12) Quitter"
 
         read input
 
         case $input in
-                1)
-                        input=1
-                        ;;
-                2)
-                        input=2
-                        ;;
-                3)
+            1)
+                    input=1
+                    ;;
+            2)
+                    input=2
+                    ;;
+            3)
+                    input=3
+                    ;;
+            4)
+                    input=4
+                    ;;
+            5)
+                    input=5
+                    ;;
+            6)
+                    input=6
+                    ;;
+            7)
+                    input=7
+                    ;;
+            8)
+                    input=8
+                    ;;
+            9)
+                    input=9
+                    ;;
+            10)
+                    input=10
+                    ;;
+            11)
+                    input=11
+                    ;;
 
         esac
 done
