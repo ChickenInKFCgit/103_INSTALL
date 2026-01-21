@@ -8,7 +8,8 @@ L’arborescence de travail est générée automatiquement à l’aide du script
 
 ./arbo.sh
 
-Ce script crée notamment les répertoires suivants (s’ils n’existent pas) :
+Ce script crée notamment les répertoires suivants (s’ils n’existent pas) :  
+
 - ENTREES/
 - PLATS/
 - DESSERTS/
@@ -21,47 +22,36 @@ Ce script crée notamment les répertoires suivants (s’ils n’existent pas) :
 
 Pour supprimer tous les fichiers et répertoires générés et repartir d’un environnement propre, utiliser :
 
-./clean.sh
+**./clean.sh**
 
-Attention : ce script supprime l’ensemble des fichiers de travail.
+/!\\ Attention : ce script supprime l’ensemble des fichiers de travail.
 
 
 ## Lancement du script principal
 
-Le script principal reçoit trois arguments :
+Le script principal ne reçoit pas d'arguments :
 
-./menu_surprise.sh ENTREES PLATS DESSERTS
+**./menu_surprise.sh**
 
 
-## Fonctionnalités principales
+## Fonctionnalités 
 
-- Créer une suggestion (entrée / plat / dessert)
-- Supprimer une suggestion (avec confirmation)
-- Consulter une suggestion
-- Afficher les X premières ou dernières lignes d’une suggestion
-- Compter le nombre de suggestions par catégorie
-- Noter une suggestion (création du répertoire NOTES)
-- Évaluer le prix d’une suggestion (création du répertoire PRIX)
-- Composer un menu pas à pas (création du répertoire MENUS)
-- Supprimer un menu (avec confirmation)
-- Compter le nombre de menus
-- Quitter le script
+1) Créer une suggestion d'entrée/plat/dessert
+2) Supprimer une suggestion d'entrée/plat/dessert
+3) Consulter une suggestion
+4) Afficher les X Premières lignes d'une suggestion
+5) Afficher les X Dernières lignes d'une suggestion
+6) compter le nombre de fichiers d'un des trois répertoires ENTREES, PLATS et DESSERTS
+7) Noter une suggestion
+8) Evaluer le prix d'une suggestion
+9) Composer un menu
+10) Supprimer un menu
+11) Compter le nombre de menus
+12) Quitter
 
 
 ## Tests et validation
 
-Le projet inclut :
-- une liste de tests descriptive (commandes, résultats attendus, vérifications avant/après),
-- un script préparatoire permettant de générer un environnement de test vierge.
+Le projet inclut un script préparatoire permettant de générer un environnement de test vierge :  
 
-Procédure recommandée :
-1. Copier le script principal et le script préparatoire dans un dossier vide
-2. Exécuter le script préparatoire
-3. Suivre les tests séquentiellement en notant les résultats observés
-
-
-## Remarques
-
-- Les noms de fichiers correspondent aux noms affichés dans les menus.
-- Les suggestions d’entrées, plats et desserts doivent avoir des noms distincts.
-- Tous les traitements vérifient les erreurs de saisie et les droits d’accès.
+**./arbo.sh**
