@@ -214,20 +214,34 @@ function composerMenu ()
 
 
     # À ajouter :
-    # - vérification d'appartenance au dossier
     # - choix de consultation des notes / prix 
 
-    echo "Choisissez une entrée :"
-    ls ENTREES
-    read choixEntree
+    choixEntree='x'
+    while [ ! -f ENTREES/$choixEntree -a ! -f ENTREES/$choixEntree.txt  ]
+    do
+        echo "Choisissez une entrée :"
+        ls ENTREES
+        echo
+        read choixEntree
+    done
 
-    echo "Choisissez un plat :"
-    ls PLATS
-    read choixPlat
+    choixPlat='x'
+    while [ ! -f PLATS/$choixPlat -a ! -f PLATS/$choixPlat.txt  ]
+    do
+        echo "Choisissez un plat :"
+        ls PLATS
+        echo
+        read choixPlat
+    done
 
-    echo "Choisissez un dessert :"
-    ls DESSERTS
-    read choixDessert
+    choixDessert='x'
+    while [ ! -f DESSERTS/$choixDessert -a ! -f DESSERTS/$choixDessert.txt ]
+    do
+        echo "Choisissez un dessert :"
+        ls DESSERTS
+        echo
+        read choixDessert
+    done
 
     touch MENUS/$nom.txt
     echo
@@ -239,6 +253,7 @@ function composerMenu ()
 
     cat MENUS/$nom.txt
 }
+
 function supprimermenu {
     echo "Veuillez saisir le menu à supprimer ou 'q' pour annuler"
     ls ./MENUS
