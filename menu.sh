@@ -7,6 +7,40 @@ then
 fi
 #_____________________FONCTIONS
 
+
+# Fonction responsable de l'affichage du contenu des fichiers
+affichage_debut() {
+        echo "Voici le contenu du fichier $1 :"
+        head -n $2 $1
+}
+
+affichage_fin() {
+        echo "Voici le contenu du fichier $1 :"
+        tail -n $2 $1
+}
+
+note ()
+{
+        #La fonction prend un paramètre un fichier
+        #auquelle un utilisateur donne un nom
+        #et une note à une suggestion
+        #qui est ajoutée au fichier donné
+        echo "Veuillez rentrer une note :"
+        read note
+        echo "Veuillez donner votre nom"
+        read name
+        echo "Note : $note 
+        Auteur : $name" >> $1
+}
+
+prix ()
+{
+        echo "Veuillez saisir le prix de la suggestion"
+        read prix
+        echo "Prix : $prix €" >> $1
+}
+
+
 function compter-nb-fichs-dans-reps ()
 {
 
@@ -66,18 +100,22 @@ do
                     ;;
             4)
                     input=4
+		    affichage_debut()
                     ;;
             5)
                     input=5
+		    affichage_fin()
                     ;;
             6)
                     input=6
                     ;;
             7)
                     input=7
-                    ;;
+                    note ()
+		    ;;
             8)
                     input=8
+		    prix ()
                     ;;
             9)
                     input=9
