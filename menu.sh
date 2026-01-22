@@ -36,7 +36,7 @@ function creerSuggestion ()
         default) break;;
     esac
 
-    echo $contenu > $dossier/$nom.txt
+    echo "$contenu" > "$dossier/$nom.txt"
 
     echo "Suggestion $nom créée dans $dossier"
     echo "Fin de la création"
@@ -266,7 +266,7 @@ function supprimermenu {
         *)
             echo "Êtes vous certain de vouloir supprimer ce menu ? [Y/n]"
             read confirmer
-            if [ $confirmer -eq "Y" ]
+            if [ "$confirmer" = "Y" ]
             then
                 if rm -R ./MENUS/$entree 2> /dev/null
                 then
@@ -321,20 +321,32 @@ do
         3)
             consulterSuggestion
             ;;
-        4)
-            affichage_debut
+        4)  
+            echo "Veuillez saisir le nom du fichier à afficher :"
+            read fichier
+            echo "Nombre de lignes à afficher :"
+            read x
+            affichage_debut "$fichier" "$x"
             ;;
         5)
-            affichage_fin
+            echo "Veuillez saisir le nom du fichier à afficher :"
+            read fichier
+            echo "Nombre de lignes à afficher :"
+            read x
+            affichage_fin "$fichier" "$x"
             ;;
         6)
             compternbfichsdansreps
             ;;
         7)
-            note
+            echo "Veuillez saisir le Fichier à noter :"
+            read fichier
+            note $fichier
             ;;
-        8)
-            prix
+        8)  
+            echo "Veuillez saisir le Fichier à évaluer :"
+            read fichier
+            prix $fichier
             ;;
         9)
             composerMenu
