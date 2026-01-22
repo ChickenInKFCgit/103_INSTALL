@@ -308,7 +308,6 @@ do
     echo "  10) Supprimer un menu"
     echo "  11) Compter le nombre de menus"
     echo "  12) Quitter"
-    echo
 
     read input
 
