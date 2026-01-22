@@ -132,12 +132,14 @@ function consulterSuggestion ()
 
 affichage_debut() {
     echo "Voici le contenu du fichier $1 :"
-    head -n $2 $1
+    contenu=$( find ./ -name $1 -exec head -n $2 {} + )
+    echo "$contenu"
 }
 
 affichage_fin() {
     echo "Voici le contenu du fichier $1 :"
-    tail -n $2 $1
+    contenu=$( find ./ -name $1 -exec tail -n $2 {} + )
+    echo "$contenu"
 }
 
 note ()
@@ -150,15 +152,25 @@ note ()
     read note
     echo "Veuillez donner votre nom"
     read name
-    echo "Note : $note 
+    if [ -f note_$1 ] ; then
+	 echo "Note : $note 
         Auteur : $name" >> $1
+    else
+    	echo "Note : $note 
+        Auteur : $name" > $1
+    fi
 }
 
 prix ()
 {
     echo "Veuillez saisir le prix de la suggestion"
     read prix
-    echo "Prix : $prix €" >> $1
+    if [ -f prix_$1 ] ; then
+    	echo "Prix : $prix €" >> $1
+    else
+    	echo "Prix : $prix €" > $1
+    fi
+
 }
 
 function compternbfichsdansreps ()
@@ -322,31 +334,35 @@ do
             consulterSuggestion
             ;;
         4)  
+	    ls -R
             echo "Veuillez saisir le nom du fichier à afficher :"
             read fichier
             echo "Nombre de lignes à afficher :"
             read x
-            affichage_debut "$fichier" "$x"
+            affichage_debut $fichier $x
             ;;
         5)
+	    ls -R
             echo "Veuillez saisir le nom du fichier à afficher :"
             read fichier
             echo "Nombre de lignes à afficher :"
             read x
-            affichage_fin "$fichier" "$x"
+            affichage_fin $fichier $x
             ;;
         6)
             compternbfichsdansreps
             ;;
         7)
+	    ls -R
             echo "Veuillez saisir le Fichier à noter :"
             read fichier
-            note $fichier
+            note ./NOTES/note_$fichier
             ;;
-        8)  
+        8) 
+	    ls -R	
             echo "Veuillez saisir le Fichier à évaluer :"
             read fichier
-            prix $fichier
+            prix ./PRIX/prix_$fichier
             ;;
         9)
             composerMenu
